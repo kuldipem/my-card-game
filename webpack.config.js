@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
@@ -12,7 +13,7 @@ const babelOptions = {
 
 const DIST_PATH = path.resolve(__dirname, 'dist');
 const SOURCE_PATH = path.resolve(__dirname, 'src');
-
+var PKG = require('./package.json');
 module.exports = {
     entry: SOURCE_PATH + '/assets/ts/main.ts',
     output: {
@@ -92,7 +93,7 @@ module.exports = {
         ]
     },
     externals: {},
-    devtool: 'source-map',
+    //devtool: 'source-map',
     devServer: {
         compress: true,
         contentBase: './dist',
@@ -116,6 +117,8 @@ module.exports = {
             inject: 'body' // inject scripts before closing body tag
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('main.css')
+        new ExtractTextPlugin('main.css'),
+        new webpack.BannerPlugin({
+            banner: `@author  : ${PKG.author.name} <${PKG.author.email}>\n@website : ${PKG.author.url}\n@hash    : [hash]\n@file    : [file]\n@package : ${PKG.name},\n@version : ${PKG.version}`})
     ]
 };
