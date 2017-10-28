@@ -1,7 +1,7 @@
 {
   "name": "my-card-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "a memory game with cards, by making matches with same value.",
   "main": "src/assets/ts/main.ts",
   "scripts": {
     "build": "./node_modules/.bin/webpack --config webpack.config.js",
