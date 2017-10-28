@@ -63,7 +63,7 @@ export const RANKS = [
 ];
 
 export const IMAGES={
-    'front': require('../images/front.gif'),
+    'front': require('../images/front.png'),
     'club-A': require('../images/club-A.png'),
     'club-2': require('../images/club-2.png'),
     'club-3': require('../images/club-3.png'),
